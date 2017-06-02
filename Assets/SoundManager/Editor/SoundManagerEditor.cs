@@ -53,7 +53,7 @@ public class SoundManagerEditor : Editor {
 
         GUILayout.Space(10f);
 
-        sm._eventTextField = EditorGUILayout.TextField("event", sm._eventTextField);
+        sm._eventTextField = EditorGUILayout.TextField("Event", sm._eventTextField);
         sm._events = _soundEventData._events;
         _eventIndex = EditorGUILayout.Popup("Events List", _eventIndex, sm._events, EditorStyles.popup);
 

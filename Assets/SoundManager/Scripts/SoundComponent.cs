@@ -14,12 +14,7 @@ public class SoundComponent : SoundManager{
 	// Use this for initialization
     void Awake()
     {
-        /*
-        _audioSource = new AudioSource();
-        _audioSource.clip = _audioClip;
-        _audioSource.loop = _loop;
-        _audioSource.playOnAwake = _playOnAwake;
-         * */
+		
     }
 	void Start()
     {
