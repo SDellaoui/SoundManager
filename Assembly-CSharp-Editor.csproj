@@ -49,6 +49,8 @@
      <Compile Include="Assets\SoundManager\Editor\EventDataAsset.cs" />
      <Compile Include="Assets\SoundManager\Editor\ScriptableObjectUtility.cs" />
      <Compile Include="Assets\SoundManager\Editor\SoundComponentEditor.cs" />
+     <Compile Include="Assets\SoundManager\Editor\SoundEventListenerEditor.cs" />
+     <Compile Include="Assets\SoundManager\Editor\SoundEventTriggerEditor.cs" />
      <Compile Include="Assets\SoundManager\Editor\SoundManagerEditor.cs" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
