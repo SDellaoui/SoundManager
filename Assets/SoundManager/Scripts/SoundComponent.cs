@@ -18,8 +18,7 @@ public class SoundComponent : SoundManager{
     }
 	void Start()
     {
-        PlaySound();
-        PlaySound(gameObject);
+
     }
 	// Update is called once per frame
 	void Update () {

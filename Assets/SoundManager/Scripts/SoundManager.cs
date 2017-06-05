@@ -82,8 +82,16 @@ public class SoundManager : MonoBehaviour {
     }
     public void PostEvent(string eventname,GameObject go=null)
     {
-        GameObject g;
-        if (go == null)
+        GameObject g = go;
+        if (g == null)
             g = Camera.main.gameObject;
+        foreach(SoundEventListener _sc in gameObject.GetComponentsInChildren<SoundEventListener>())
+        {
+            Debug.Log(_sc._events[_sc._eventIndex]);
+            if(_sc._events[_sc._eventIndex] == eventname)
+            {
+                Debug.Log("Found gameobject : " + _sc.gameObject.name);
+            }
+        }
     }
 }

@@ -10,8 +10,6 @@ public class SoundEventListenerEditor : Editor {
 	public SoundEventListener _sndEvtListener;
 	public SoundEventData _sndEvtData;
 
-	public int _eventIndex = 0;
-
 	void OnEnable()
 	{
 		/*
@@ -31,7 +29,7 @@ public class SoundEventListenerEditor : Editor {
 
 		_sndEvtListener = (SoundEventListener)target;
 		_sndEvtListener._events = _sndEvtData._events;
-		_eventIndex = EditorGUILayout.Popup("Events List", _eventIndex, _sndEvtListener._events, EditorStyles.popup);
+		_sndEvtListener._eventIndex = EditorGUILayout.Popup("Events List", _sndEvtListener._eventIndex, _sndEvtListener._events, EditorStyles.popup);
 
 		serializedObject.ApplyModifiedProperties();
 	}

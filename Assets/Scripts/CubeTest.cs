@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundEventListener : MonoBehaviour {
+public class CubeTest : MonoBehaviour {
 
-	public string[] _events;
-    public int _eventIndex = 0;
 	// Use this for initialization
 	void Start () {
 		

@@ -1,9 +1,10 @@
 obj/
-Library/
+Library/*
 $PROJDIR/Temp/
 $PROJDIR/Library/
 $PROJDIR/Obj/
  
+ .vs/
 *.csproj
 *.unityproj
 *.sln
@@ -11,4 +12,5 @@ $PROJDIR/Obj/
 *.userprefs
 *.DS_store
 *.cs.meta
+*.meta
 *.dll
