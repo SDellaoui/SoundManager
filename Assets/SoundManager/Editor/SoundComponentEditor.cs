@@ -18,6 +18,7 @@ public class SoundComponentEditor : Editor
     private void InitSoundComponentEditor()
     {
         SoundComponent sc = (SoundComponent)target;
+        sc._busIndex = EditorGUILayout.Popup("Events List", sc._busIndex, sc.GetAudiomixerGroups(), EditorStyles.popup);
         sc._audioClip = (AudioClip)EditorGUILayout.ObjectField("AudioClip", sc._audioClip, typeof(AudioClip), true);
         sc._loop = EditorGUILayout.Toggle("Loop", m_loop);
         sc._playOnAwake = EditorGUILayout.Toggle("PlayOnAwake", m_playOnAwake);

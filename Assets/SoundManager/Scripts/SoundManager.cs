@@ -35,6 +35,17 @@ public class SoundManager : MonoBehaviour {
 
     /*-------------------------------*/
 
+    public string[] GetAudiomixerGroups()
+    {
+        AudioMixer am = _soundEventData._currentAudioMixer;
+        List<string> listAudioMixers = new List<string>();
+        foreach (AudioMixerGroup amg in am.FindMatchingGroups(string.Empty))
+        {
+            listAudioMixers.Add(amg.name);
+        }
+        return listAudioMixers.ToArray();      
+    }
+
     public void SaveEventLog()
     {
         
@@ -85,12 +96,13 @@ public class SoundManager : MonoBehaviour {
         GameObject g = go;
         if (g == null)
             g = Camera.main.gameObject;
+        List<GameObject> gSources = new List<GameObject>();
         foreach(SoundEventListener _sc in gameObject.GetComponentsInChildren<SoundEventListener>())
         {
             Debug.Log(_sc._events[_sc._eventIndex]);
             if(_sc._events[_sc._eventIndex] == eventname)
             {
-                Debug.Log("Found gameobject : " + _sc.gameObject.name);
+                gSources.Add(_sc.gameObject);
             }
         }
     }

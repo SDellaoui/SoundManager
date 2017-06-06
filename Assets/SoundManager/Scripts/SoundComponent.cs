@@ -11,6 +11,10 @@ public class SoundComponent : SoundManager{
     public bool _loop = false;
     public bool _playOnAwake = false;
 
+    public int _busIndex = 0;
+    public string[] _buses;
+
+
 	// Use this for initialization
     void Awake()
     {

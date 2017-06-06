@@ -48,9 +48,9 @@ public class SoundManagerEditor : Editor {
  
         sm = (SoundManager)target;
         sm._audioMixer = (AudioMixer)EditorGUILayout.ObjectField("AudioMixer", sm._audioMixer, typeof(AudioMixer),true);
+        
         if (GUILayout.Button("AddComponent"))
             sm.AddSoundComponent();
-
         GUILayout.Space(10f);
 
         sm._eventTextField = EditorGUILayout.TextField("Event", sm._eventTextField);
@@ -79,6 +79,7 @@ public class SoundManagerEditor : Editor {
             if(myList.Count > 0 && (_eventIndex - 1) >= 0)
                 _eventIndex--;
         }
+        _soundEventData._currentAudioMixer = sm._audioMixer;
     }
     private void OnEnable()
     {
