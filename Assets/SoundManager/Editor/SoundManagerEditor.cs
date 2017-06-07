@@ -21,12 +21,14 @@ public class SoundManagerEditor : Editor {
 
 
     // Use this for initialization
-    /*
+    
     void OnEnable()
     {
-        m_SoundManagerObject = new SerializedObject(target);
+		sm = (SoundManager)target;
+		_soundEventData = Resources.Load<SoundEventData>("EventsData");
+		sm._soundEventData = _soundEventData;
     }
-    */
+    
     public override void OnInspectorGUI()
     {
         //base.OnInspectorGUI();
@@ -44,9 +46,9 @@ public class SoundManagerEditor : Editor {
         m_SoundManagerObject.ApplyModifiedProperties();
         */
         //GetTarget
-        _soundEventData = Resources.Load<SoundEventData>("EventsData");
+        
  
-        sm = (SoundManager)target;
+        
         sm._audioMixer = (AudioMixer)EditorGUILayout.ObjectField("AudioMixer", sm._audioMixer, typeof(AudioMixer),true);
         
         if (GUILayout.Button("AddComponent"))
@@ -80,12 +82,5 @@ public class SoundManagerEditor : Editor {
                 _eventIndex--;
         }
         _soundEventData._currentAudioMixer = sm._audioMixer;
-    }
-    private void OnEnable()
-    {
-        /*
-        _soundEventData = Resources.Load<SoundEventData>("EventData");
-        Debug.Log(_soundEventData._events[0]);
-         * */
     }
 }

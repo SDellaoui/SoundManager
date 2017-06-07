@@ -8,7 +8,7 @@ public class SoundManager : MonoBehaviour {
 
     public static SoundManager Instance = null;
 
-    public SoundEventData _soundEventData;
+	public SoundEventData _soundEventData;
 
     public AudioMixer _audioMixer;
     public string[] _events;
@@ -35,17 +35,23 @@ public class SoundManager : MonoBehaviour {
 
     /*-------------------------------*/
 
-    public string[] GetAudiomixerGroups()
+	public string[] GetAudiomixerGroups(AudioMixer a = null)
     {
-        AudioMixer am = _soundEventData._currentAudioMixer;
+		
+		AudioMixer am = a;
+		if(am == null)
+			am = _audioMixer;
         List<string> listAudioMixers = new List<string>();
-        foreach (AudioMixerGroup amg in am.FindMatchingGroups(string.Empty))
+		foreach (AudioMixerGroup amg in am.FindMatchingGroups(string.Empty))
         {
             listAudioMixers.Add(amg.name);
         }
         return listAudioMixers.ToArray();      
     }
-
+	public virtual void Coucou()
+	{
+		Debug.Log("coucou");
+	}
     public void SaveEventLog()
     {
         

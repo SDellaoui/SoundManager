@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\CubeTest.cs" />
      <Compile Include="Assets\SoundManager\Scripts\SoundComponent.cs" />
      <Compile Include="Assets\SoundManager\Scripts\SoundEventData.cs" />
      <Compile Include="Assets\SoundManager\Scripts\SoundEventListener.cs" />
