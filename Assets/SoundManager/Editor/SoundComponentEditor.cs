@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Audio;
@@ -23,6 +24,9 @@ public class SoundComponentEditor : Editor
     private void InitSoundComponentEditor()
     {
         //Setup UI
+		if(sc._guID == "")
+			sc._guID = Guid.NewGuid().ToString();
+		EditorGUILayout.LabelField(sc._guID);
 		sc._buses = sc.GetAudiomixerGroups(_sndEventData._currentAudioMixer);
         sc._busIndex = EditorGUILayout.Popup("BUS", sc._busIndex, sc._buses, EditorStyles.popup);
         sc._audioClip = (AudioClip)EditorGUILayout.ObjectField("AudioClip", sc._audioClip, typeof(AudioClip), true);

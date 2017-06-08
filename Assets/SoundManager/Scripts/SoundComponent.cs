@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundComponent : SoundManager{
 
+	public string _guID;
 
     public AudioSource _audioSource;
     public AudioClip _audioClip;

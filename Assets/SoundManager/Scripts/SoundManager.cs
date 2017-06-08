@@ -93,9 +93,9 @@ public class SoundManager : MonoBehaviour {
         sc.AddComponent<SoundComponent>();
         //Debug.Log(_audioMixer.name);
     }
-    public void PlaySound()
+	public void PlaySound(AudioMixer a, GameObject g)
     {
- 
+		AudioMixer am = g.AddComponent<AudioMixer>();
     }
     public void PostEvent(string eventname,GameObject go=null)
     {

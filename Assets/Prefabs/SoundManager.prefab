@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4191428001490436}
   - component: {fileID: 114210206056775072}
   - component: {fileID: 114587942864307462}
-  - component: {fileID: 82789635068721210}
+  - component: {fileID: 82775987921909960}
   m_Layer: 0
   m_Name: SoundComponent
   m_TagString: Untagged
@@ -72,7 +72,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82789635068721210
+--- !u!82 &82775987921909960
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,10 +80,10 @@ AudioSource:
   m_GameObject: {fileID: 1773649658665408}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243769128474366754, guid: 0c6b05c88b6b1ba40b84316678324d9d,
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0c6b05c88b6b1ba40b84316678324d9d,
     type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 93f9e968cc9f98047b1ea44796073651, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -140,7 +140,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -168,10 +168,16 @@ MonoBehaviour:
   _audioMixer: {fileID: 0}
   _events: []
   _eventTextField: 
-  _audioSource: {fileID: 0}
+  _guID: 2711a176-f9a3-4085-8dcb-63834a3c5427
+  _audioSource: {fileID: 82775987921909960}
   _audioClip: {fileID: 8300000, guid: 93f9e968cc9f98047b1ea44796073651, type: 3}
   _busIndex: 0
-  _buses: []
+  _buses:
+  - Master
+  - AMB
+  - MUSIC
+  - UI
+  - SFX
 --- !u!114 &114587942864307462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,9 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6493e7b74956115479863bd84f377882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundEventData: {fileID: 0}
+  _soundEventData: {fileID: 11400000, guid: da3304b022aeac64fab4e7a6d7de5616, type: 2}
   _audioMixer: {fileID: 24100000, guid: 0c6b05c88b6b1ba40b84316678324d9d, type: 2}
   _events:
+  - zerzeuiuyerze
   - Hello Darkness
   - Moziozer
   - 12321ert
