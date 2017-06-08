@@ -1,5 +1,5 @@
 obj/
-Library/*
+Library/
 $PROJDIR/Temp/
 $PROJDIR/Library/
 $PROJDIR/Obj/

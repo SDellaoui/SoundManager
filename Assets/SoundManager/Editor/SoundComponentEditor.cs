@@ -7,9 +7,6 @@ using UnityEngine.Audio;
 [CanEditMultipleObjects]
 public class SoundComponentEditor : Editor
 {
-    public bool m_loop = false;
-    bool m_playOnAwake = false;
-
 	SoundComponent sc;
 	SoundEventData _sndEventData;
 
@@ -25,11 +22,20 @@ public class SoundComponentEditor : Editor
     }
     private void InitSoundComponentEditor()
     {
+        //Setup UI
 		sc._buses = sc.GetAudiomixerGroups(_sndEventData._currentAudioMixer);
         sc._busIndex = EditorGUILayout.Popup("BUS", sc._busIndex, sc._buses, EditorStyles.popup);
         sc._audioClip = (AudioClip)EditorGUILayout.ObjectField("AudioClip", sc._audioClip, typeof(AudioClip), true);
-        sc._loop = EditorGUILayout.Toggle("Loop", m_loop);
-        sc._playOnAwake = EditorGUILayout.Toggle("PlayOnAwake", m_playOnAwake);
+
+
+        //AudioSource
+        if(sc.gameObject.GetComponent<AudioSource>() == null)
+        {
+            sc.gameObject.AddComponent<AudioSource>();
+        }
+        sc._audioSource = sc.gameObject.GetComponent<AudioSource>();
+        sc._audioSource.outputAudioMixerGroup = _sndEventData._currentAudioMixer.FindMatchingGroups(string.Empty)[sc._busIndex];
+        sc._audioSource.clip = sc._audioClip;
 
     }
     private void OnGUI()

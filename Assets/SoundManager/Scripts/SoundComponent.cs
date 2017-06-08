@@ -8,8 +8,6 @@ public class SoundComponent : SoundManager{
 
     public AudioSource _audioSource;
     public AudioClip _audioClip;
-    public bool _loop = false;
-    public bool _playOnAwake = false;
 
     public int _busIndex = 0;
     public string[] _buses;
@@ -28,6 +26,10 @@ public class SoundComponent : SoundManager{
 	void Update () {
 		
 	}
+    public AudioSource GetAudioSource()
+    {
+        return _audioSource;
+    }
     public void PlaySound()
     {
         Debug.Log("PlaySound");

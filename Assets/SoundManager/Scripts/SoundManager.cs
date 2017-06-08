@@ -111,5 +111,14 @@ public class SoundManager : MonoBehaviour {
                 gSources.Add(_sc.gameObject);
             }
         }
+        foreach(GameObject gos in gSources)
+        {
+            AudioSource audioSource = gos.GetComponent<AudioSource>();
+            if(audioSource.loop == false)
+            {
+                Debug.Log("None loop");
+            }
+    
+        }
     }
 }
