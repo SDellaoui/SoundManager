@@ -80,7 +80,7 @@ AudioSource:
   m_GameObject: {fileID: 1773649658665408}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 0c6b05c88b6b1ba40b84316678324d9d,
+  OutputAudioMixerGroup: {fileID: 243769128474366754, guid: 0c6b05c88b6b1ba40b84316678324d9d,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 93f9e968cc9f98047b1ea44796073651, type: 3}
   m_PlayOnAwake: 0
@@ -93,9 +93,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -103,26 +103,26 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
-      time: 0
+      time: 0.01
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -3.2777774
+      outSlope: -3.2777774
       tangentMode: 0
     - serializedVersion: 2
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.01
+      inSlope: -0.010003988
+      outSlope: -0.010003988
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   _guID: 2711a176-f9a3-4085-8dcb-63834a3c5427
   _audioSource: {fileID: 82775987921909960}
   _audioClip: {fileID: 8300000, guid: 93f9e968cc9f98047b1ea44796073651, type: 3}
-  _busIndex: 0
+  _busIndex: 2
   _buses:
   - Master
   - AMB

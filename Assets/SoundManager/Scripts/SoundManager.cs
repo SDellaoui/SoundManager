@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour {
+
+	public List<object> _componentsList;
 
     public static SoundManager Instance = null;
 
@@ -22,6 +25,8 @@ public class SoundManager : MonoBehaviour {
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+		_componentsList = new List<object>();
+		_componentsList.Add(new SoundComponent());
 
     }
     // Use this for initialization
@@ -95,7 +100,7 @@ public class SoundManager : MonoBehaviour {
     }
 	public void PlaySound(AudioMixer a, GameObject g)
     {
-		AudioMixer am = g.AddComponent<AudioMixer>();
+		
     }
     public void PostEvent(string eventname,GameObject go=null)
     {
@@ -108,17 +113,40 @@ public class SoundManager : MonoBehaviour {
             Debug.Log(_sc._events[_sc._eventIndex]);
             if(_sc._events[_sc._eventIndex] == eventname)
             {
+				List<object> goAndComponent = new List<object>();
                 gSources.Add(_sc.gameObject);
             }
         }
         foreach(GameObject gos in gSources)
         {
-            AudioSource audioSource = gos.GetComponent<AudioSource>();
+			AudioSource audios = g.AddComponent<AudioSource>();
+			foreach(object obj in _componentsList)
+			{
+				System.Type _type = obj.GetType();
+				if(_type == typeof(SoundComponent))
+				{
+					SoundComponent component = gos.GetComponent(_type) as SoundComponent;
+					Debug.Log(component._audioSource.clip.name);
+					//TODO : Utilise les réflextions gros trou de balle
+					FieldInfo[] fInfo = _type.GetFields();
+					audios.Equals(component._audioSource);
+					//audios = component._audioSource;
+					//audios.clip = component._audioSource.clip;
+					audios.Play();
+					break;
+				}
+			}
+			/*
+			AudioSource audioSource = gos.GetComponent<AudioSource>();
             if(audioSource.loop == false)
             {
-                Debug.Log("None loop");
+				Debug.Log(audioSource.clip);
+				AudioSource _as = g.AddComponent<AudioSource>();
+				_as = audioSource;
+				_as.Play();
+
             }
-    
+    		*/
         }
     }
 }

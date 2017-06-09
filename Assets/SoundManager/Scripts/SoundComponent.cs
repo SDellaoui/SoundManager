@@ -17,7 +17,6 @@ public class SoundComponent : SoundManager{
 	// Use this for initialization
     void Awake()
     {
-		
     }
 	void Start()
     {

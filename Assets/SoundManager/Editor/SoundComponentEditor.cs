@@ -33,13 +33,19 @@ public class SoundComponentEditor : Editor
 
 
         //AudioSource
+		AudioSource _as;
         if(sc.gameObject.GetComponent<AudioSource>() == null)
         {
-            sc.gameObject.AddComponent<AudioSource>();
-        }
-        sc._audioSource = sc.gameObject.GetComponent<AudioSource>();
-        sc._audioSource.outputAudioMixerGroup = _sndEventData._currentAudioMixer.FindMatchingGroups(string.Empty)[sc._busIndex];
-        sc._audioSource.clip = sc._audioClip;
+            _as = sc.gameObject.AddComponent<AudioSource>();
+        } else {
+			_as = sc.gameObject.GetComponent<AudioSource>();
+		}
+        //sc._audioSource = sc.gameObject.GetComponent<AudioSource>();
+        //sc._audioSource.outputAudioMixerGroup = _sndEventData._currentAudioMixer.FindMatchingGroups(string.Empty)[sc._busIndex];
+        //sc._audioSource.clip = sc._audioClip;
+		_as.outputAudioMixerGroup = _sndEventData._currentAudioMixer.FindMatchingGroups(string.Empty)[sc._busIndex];
+		sc._audioSource = _as;
+
 
     }
     private void OnGUI()

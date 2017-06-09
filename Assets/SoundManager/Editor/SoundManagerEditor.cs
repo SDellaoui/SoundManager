@@ -46,7 +46,6 @@ public class SoundManagerEditor : Editor {
         m_SoundManagerObject.ApplyModifiedProperties();
         */
         //GetTarget
-        
  
         
         sm._audioMixer = (AudioMixer)EditorGUILayout.ObjectField("AudioMixer", sm._audioMixer, typeof(AudioMixer),true);
