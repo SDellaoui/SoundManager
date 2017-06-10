@@ -108,9 +108,9 @@ public class SoundManager : MonoBehaviour {
         if (g == null)
             g = Camera.main.gameObject;
         List<GameObject> gSources = new List<GameObject>();
+        Debug.Log(gameObject.name);
         foreach(SoundEventListener _sc in gameObject.GetComponentsInChildren<SoundEventListener>())
         {
-            Debug.Log(_sc._events[_sc._eventIndex]);
             if(_sc._events[_sc._eventIndex] == eventname)
             {
 				List<object> goAndComponent = new List<object>();
@@ -119,24 +119,39 @@ public class SoundManager : MonoBehaviour {
         }
         foreach(GameObject gos in gSources)
         {
-			AudioSource audios = g.AddComponent<AudioSource>();
+            GameObject soundInstance = new GameObject("AudioSource");
+            soundInstance.transform.parent = gos.transform;
+            soundInstance.transform.position = g.transform.position;
+            SoundInstance inst = soundInstance.AddComponent<SoundInstance>();
+            inst._attachedGameObject = g;
+            inst.Init(gos.GetComponent<AudioSource>());
+            /*
+            AudioSource _as = soundInstance.AddComponent<AudioSource>();
+            AudioSource parentAS = gos.GetComponent<AudioSource>();
+            FieldInfo[] fields = parentAS.GetType().GetFields();
+            foreach(FieldInfo f in fields)
+            {
+                f.SetValue(_as, f.GetValue(parentAS));
+                Debug.Log(f);
+            }
+            /*
 			foreach(object obj in _componentsList)
 			{
 				System.Type _type = obj.GetType();
 				if(_type == typeof(SoundComponent))
 				{
+                    SoundComponent comp = g.AddComponent<SoundComponent>();
 					SoundComponent component = gos.GetComponent(_type) as SoundComponent;
 					Debug.Log(component._audioSource.clip.name);
 					//TODO : Utilise les réflextions gros trou de balle
 					FieldInfo[] fInfo = _type.GetFields();
-					audios.Equals(component._audioSource);
-					//audios = component._audioSource;
-					//audios.clip = component._audioSource.clip;
-					audios.Play();
+                    foreach(FieldInfo field in fInfo){
+                        field.SetValue(comp,field.GetValue(component));
+                    }
+
 					break;
 				}
 			}
-			/*
 			AudioSource audioSource = gos.GetComponent<AudioSource>();
             if(audioSource.loop == false)
             {
